@@ -14,9 +14,11 @@
 class AntiAFKLogoutServerScript : public ServerScript
 {
 public:
-    AntiAFKLogoutServerScript() : ServerScript("AntiAFKLogoutServerScript") { }
+    AntiAFKLogoutServerScript() : ServerScript("AntiAFKLogoutServerScript", {
+        SERVERHOOK_CAN_PACKET_RECEIVE
+    }) { }
 
-    bool OnPacketReceive(WorldSession* session, WorldPacket& packet) override
+    [[nodiscard]] bool CanPacketReceive(WorldSession* session, WorldPacket& packet) override
     {
         // Only intercept logout request packets
         if (packet.GetOpcode() != CMSG_LOGOUT_REQUEST)
@@ -69,7 +71,9 @@ public:
 class AntiAFKLogoutWorldScript : public WorldScript
 {
 public:
-    AntiAFKLogoutWorldScript() : WorldScript("AntiAFKLogoutWorldScript") { }
+    AntiAFKLogoutWorldScript() : WorldScript("AntiAFKLogoutWorldScript", {
+        WORLDHOOK_ON_AFTER_CONFIG_LOAD
+    }) { }
 
     void OnAfterConfigLoad(bool /*reload*/) override
     {

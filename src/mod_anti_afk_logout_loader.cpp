@@ -1,12 +1,12 @@
 /*
- * mod-anti-afk-logout
- * Auto-generated script loader
+ * mod-anti-afk
+ * Script loader
  */
 
-// From mod-anti-afk-logout
+// From mod-anti-afk
 void AddAntiAFKLogoutScripts();
 
-void AddModAntiAFKLogoutScripts()
+void Addmod_anti_afkScripts()
 {
     AddAntiAFKLogoutScripts();
 }
