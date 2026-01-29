@@ -1,0 +1,49 @@
+#
+# mod-anti-afk-logout Configuration
+#
+# This module prevents automatic AFK logout while allowing manual logout.
+# The client normally initiates a logout after 30 minutes of inactivity.
+# This module detects when the player has the AFK flag set and blocks
+# the logout request, keeping the player connected.
+#
+
+###############################################################################
+# ANTI-AFK LOGOUT SETTINGS
+###############################################################################
+
+#
+# AntiAFKLogout.Enable
+#   Description: Enable or disable the anti-AFK logout module
+#   Default:     1 (enabled)
+#
+
+AntiAFKLogout.Enable = 1
+
+#
+# AntiAFKLogout.OnlyWhenNotInCombat
+#   Description: Only block AFK logout when the player is NOT in combat.
+#                If the player is AFK and in combat (e.g., being attacked),
+#                allow normal logout behavior.
+#   Default:     1 (only block when out of combat)
+#
+
+AntiAFKLogout.OnlyWhenNotInCombat = 0
+
+#
+# AntiAFKLogout.ClearAFKFlag
+#   Description: Clear the AFK flag when blocking an AFK logout.
+#                This prevents repeated logout attempts and the associated
+#                "You have been away" messages.
+#   Default:     1 (clear AFK flag)
+#
+
+AntiAFKLogout.ClearAFKFlag = 1
+
+#
+# AntiAFKLogout.LogBlocked
+#   Description: Log a message when an AFK logout is blocked.
+#                Useful for debugging but can be noisy with many bots.
+#   Default:     0 (disabled)
+#
+
+AntiAFKLogout.LogBlocked = 0
